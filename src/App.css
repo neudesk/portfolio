@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500|Saira+Extra+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Exo+2:100');
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Saira Extra Condensed', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.m-t-5 {
+    margin-top: 5px;
+}
+.m-t-10 {
+    margin-top: 10px;
+}
+.m-t-15 {
+    margin-top: 15px;
+}
+.m-t-20 {
+    margin-top: 20px;
+}
+.m-t-25 {
+    margin-top: 25px;
+}
+.m-t-30 {
+    margin-top: 30px;
+}
+.m-r-5 {
+    margin-right: 5px;
+}
+.m-r-10 {
+    margin-right: 10px;
+}
+.m-r-15 {
+    margin-right: 15px;
+}
+.m-r-20 {
+    margin-right: 20px;
+}
+.m-r-25 {
+    margin-right: 25px;
+}
+.m-r-30 {
+    margin-top: 30px;
+}
+
+.p-30 {
+    padding: 30px;
+}
+
+#mainPhoto {
+    height: 263px;
+    width: 100%;
+    background: url('/assets/images/photo.jpg') center center;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.whiteBg {
+    background: #FFF;
+}
+
+#cvName {
+    background: #4F4F4F;
+}
+
+#cvName h1 {
+    font-size: 40px;
+    font-family: 'Exo 2', sans-serif !important;
+    color: #e7e7e7;
+    line-height: 2.1em;
+    padding: 0px 40px;
+}
+
+.cvDownload {
+    height: 5.9em !important;
+    line-height: 5.9em !important;
+    width: 100%;
+}
+.cvDownload > div span {
+    color: #e7e7e7;
+    display: block;
+    height: 100%;
+    font-size: 20px;
+}
+
+#cvTitle {
+    background: #3F3F3F;
+}
+
+#cvTitle h4 {
+    font-size: 30px;
+    font-family: 'Exo 2', sans-serif !important;
+    color: #e7e7e7;
+    line-height: 2.1em;
+    padding: 0px 40px;
+}
+
+#cvMenu ul {
+    padding: 0;
+    margin: 0;
+}
+#cvMenu ul > li {
+    width: 20%;
+}
+#cvMenu ul > li > a {
+    padding: 30px;
+    font-size: 20px;
+    display: block;
+    color: #5d5d5d;
+}
+#cvMenu ul > li > a:hover {
+    text-decoration: none;
+}
+#cvMenu ul > li.home {
+    background: #DCEDC8;
+}
+#cvMenu ul > li.home a:hover {
+    background: #AED581;
+}
+#cvMenu ul > li.resume {
+    background: #B3E5FC;
+}
+#cvMenu ul > li.resume:hover {
+    background: #4FC3F7;
+}
+#cvMenu ul > li.portfolio {
+    background: #E1BEE7;
+}
+#cvMenu ul > li:hover > a {
+    color: #FFF;
+}
+#cvMenu ul > li.portfolio:hover {
+    background: #BA68C8;
+}
+#cvMenu ul > li.recommendations {
+    background: #FF9E80;
+}
+#cvMenu ul > li.recommendations:hover {
+    background: #FF6E40;
+}
+#cvMenu ul > li.contacts {
+    background: #FFCDD2;
+}
+#cvMenu ul > li.contacts:hover {
+    background: #E57373;
+}
+
+.overview {
+    padding: 50px;
+    font-size: 18px;
+}
+
+.block {
+    display: block;
+}
