@@ -65,6 +65,27 @@ export default class Layout extends React.Component {
             </bootstrap.Row>
           </bootstrap.Grid>
         </div>
+        <div id="footer" className="grayBg">
+          <bootstrap.Row className="show-grid">
+            <bootstrap.Col className="p-0" xs={12} md={2} lg={2}>
+              <p className="copyRight">© Jonathan Canaveral</p>
+            </bootstrap.Col>
+            <bootstrap.Col className="p-0" xs={12} md={3} lg={3}>
+              <h4>Download CV</h4>
+              <FlatButton
+                className="sm-btn"
+                label="English"
+                backgroundColor="#BDBDBD"
+                hoverColor="#0091EA"
+                icon={<span className="fa fa-cloud-download"></span>}
+              />
+              <p><small>The CV is in .pdf format. Use the Adobe Reader to open it.</small></p>
+            </bootstrap.Col>
+            <bootstrap.Col className="p-0" xs={12} md={7} lg={7}>
+              <h4>Follow Me</h4>
+            </bootstrap.Col>
+          </bootstrap.Row>
+        </div>
       </CenterView>
     )
   }
