@@ -4,10 +4,21 @@ import FlatButton from 'material-ui/FlatButton';
 import * as data from '../services/data/data';
 import * as bootstrap from 'react-bootstrap';
 import Timeline from './home/timeline';
+import SkillChart from './home/skill_chart';
 
 export default class Home extends React.Component {
 
+  renderSkillGraphs() {
+    return data.skillData.map((skill, id) => {
+      return(
+        <SkillChart key={id} data={skill} />
+      )
+    });
+  }
+
   render() {
+    const self = this;
+
     return(
       <bootstrap.Grid fluid={true}>
         <bootstrap.Row className="show-grid p-0">
@@ -22,28 +33,30 @@ export default class Home extends React.Component {
             <Timeline />
           </bootstrap.Col>
           <bootstrap.Col className="p-0" xs={12} md={8} lg={8}>
-            <div className="p-50">
+            <div className="p-20">
+              <h2 className="m-b-20">Professional Skills</h2>
+              {self.renderSkillGraphs()}
               <span className="block text-center">
-              <span className="m-r-10">
-                <FlatButton
-                  label="Download CV"
-                  backgroundColor={colors.lightBlue200}
-                  hoverColor={colors.lightBlue400}
-                  icon={<span className="fa fa-cloud-download "></span>}
-                  style={{color: '#FFF'}}
-                />
+                <span className="m-r-10">
+                  <FlatButton
+                    label="Download CV"
+                    backgroundColor={colors.lightBlue200}
+                    hoverColor={colors.lightBlue400}
+                    icon={<span className="fa fa-cloud-download "></span>}
+                    style={{color: '#FFF'}}
+                  />
+                </span>
+                <span className="m-r-10">
+                  <FlatButton
+                    label="Contact me"
+                    className="m-r-10"
+                    backgroundColor={colors.red300}
+                    hoverColor={colors.red600}
+                    icon={<span className="fa fa-address-card"></span>}
+                    style={{color: '#FAFAFA'}}
+                  />
+                </span>
               </span>
-              <span className="m-r-10">
-                <FlatButton
-                  label="Contact me"
-                  className="m-r-10"
-                  backgroundColor={colors.red300}
-                  hoverColor={colors.red600}
-                  icon={<span className="fa fa-address-card"></span>}
-                  style={{color: '#FAFAFA'}}
-                />
-              </span>
-            </span>
             </div>
           </bootstrap.Col>
         </bootstrap.Row>

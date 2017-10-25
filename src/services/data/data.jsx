@@ -1,3 +1,5 @@
+import * as colors from 'material-ui/styles/colors';
+
 export const BasicInfo = {
   firstName: 'Jonathan',
   lastName: 'Canaveral'
@@ -5,10 +7,9 @@ export const BasicInfo = {
 
 export const JobTitles = ['ruby developer.', 'reactJS developer.', 'angularJS developer.', 'nodeJS express developer.'];
 export const Overview = `Hello everyone, my name is Jonathan Senence Canaveral. I am from the Philippines.<br />
-                         I am an experienced fullstack software engineer specialize in web based related products. I started coding since 2008.<br />
+                         I'm an experienced fullstack software engineer specialize in web based related products. I started coding since 2008.<br />
                          During these years, I worked with awesome teams and projects. Please check my <a href="javascript:void(0)">portfolio</a> for my past and current projects.<br />
-                         I am a team player and a problem solver.<br />
-                         If you find me interesting to your project, please feel free to contact me <a href="javascript:void(0)">here</a>.`
+                         I'm a team player and a problem solver. If you find me interesting to your project, please feel free to contact me <a href="javascript:void(0)">here</a>.`
 
 export const Employment = [
   {
@@ -44,3 +45,17 @@ export const Employment = [
     body: ``
   }
 ]
+
+export const skillData = [
+  {
+    value: .90,
+    color: colors.red900,
+    name: 'ruby',
+    label: 'Ruby / Ruby on Rails'
+  }
+];
+
+export const skillChartOptions = {
+  cutoutPercentage: 95,
+  maintainAspectRatio: false
+}

@@ -1,15 +1,14 @@
 import React from 'react';
-import * as colors from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
 import * as data from '../../services/data/data';
 
 export default class Timeline extends React.Component {
 
   renderTimelineContent() {
-    return data.Employment.slice(0, 2).map((emp) => {
+    return data.Employment.slice(0, 2).map((emp, id) => {
       return(
-        <article className="panel panel-danger panel-outline">
-          <img className="panel-heading icon" src={emp.icon} width={40} height={40} />
+        <article key={id} className="panel panel-danger panel-outline">
+          <img className="panel-heading icon" src={emp.icon} width={40} height={40} alt={emp.company} />
           <div className="panel-body p-0">
             <time>{emp.startDate}</time> - <time>{emp.endDate}</time>
             <h3>{emp.company}</h3>
