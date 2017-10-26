@@ -70,6 +70,7 @@
     border-radius: 50%;
     text-align: center;
     float: left;
+    background: #FFF;
 }
 .timeline .panel .panel-heading.icon img {
     background: none;

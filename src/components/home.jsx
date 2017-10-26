@@ -1,10 +1,10 @@
 import React from 'react';
 import * as colors from 'material-ui/styles/colors';
-import FlatButton from 'material-ui/FlatButton';
 import * as data from '../services/data/data';
 import * as bootstrap from 'react-bootstrap';
 import Timeline from './home/timeline';
 import SkillChart from './home/skill_chart';
+import CvDownloadBtn from './home/cv_download_btn';
 
 export default class Home extends React.Component {
 
@@ -29,34 +29,24 @@ export default class Home extends React.Component {
           </bootstrap.Col>
         </bootstrap.Row>
         <bootstrap.Row className="show-grid p-0">
-          <bootstrap.Col className="p-0 p-20" xs={12} md={4} lg={4} style={{background: colors.blueA100}}>
+          <bootstrap.Col className="p-0 p-20" xs={12} md={3} lg={3} style={{background: colors.blueA100}}>
             <Timeline />
           </bootstrap.Col>
-          <bootstrap.Col className="p-0" xs={12} md={8} lg={8}>
+          <bootstrap.Col className="p-0" xs={12} md={9} lg={9}>
             <div className="p-20">
               <h2 className="m-b-20">Professional Skills</h2>
-              {self.renderSkillGraphs()}
-              <span className="block text-center">
-                <span className="m-r-10">
-                  <FlatButton
-                    label="Download CV"
-                    backgroundColor={colors.lightBlue200}
-                    hoverColor={colors.lightBlue400}
-                    icon={<span className="fa fa-cloud-download "></span>}
-                    style={{color: '#FFF'}}
-                  />
-                </span>
-                <span className="m-r-10">
-                  <FlatButton
-                    label="Contact me"
-                    className="m-r-10"
-                    backgroundColor={colors.red300}
-                    hoverColor={colors.red600}
-                    icon={<span className="fa fa-address-card"></span>}
-                    style={{color: '#FAFAFA'}}
-                  />
-                </span>
-              </span>
+              <bootstrap.Grid fluid={true}>
+                <bootstrap.Col className="p-0" xs={0} md={1} lg={1}>
+                </bootstrap.Col>
+                <bootstrap.Row id="skill-graph" className="show-grid p-0">
+                  {self.renderSkillGraphs()}
+                </bootstrap.Row>
+                <bootstrap.Col className="p-0" xs={0} md={1} lg={1}>
+                </bootstrap.Col>
+              </bootstrap.Grid>
+            </div>
+            <div className="m-t-30 m-b-30">
+              <CvDownloadBtn />
             </div>
           </bootstrap.Col>
         </bootstrap.Row>

@@ -23,16 +23,12 @@ export default class SkillChart extends React.Component {
     const self = this;
     const data = self.props.data;
     return (
-      <bootstrap.Grid fluid={true}>
-        <bootstrap.Row className="show-grid p-0">
-          <bootstrap.Col className="p-0" xs={6} md={3} lg={3}>
-            <div className="circle-progress text-center">
-              <div id={data.name}></div>
-              <span>{data.label}</span>
-            </div>
-          </bootstrap.Col>
-        </bootstrap.Row>
-      </bootstrap.Grid>
+      <bootstrap.Col xs={6} md={2} lg={2}>
+        <div className="circle-progress text-center">
+          <div id={data.name} className="programming-logos"></div>
+          <span dangerouslySetInnerHTML={{__html: data.label}}></span>
+        </div>
+      </bootstrap.Col>
     )
   }
 
