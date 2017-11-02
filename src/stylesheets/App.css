@@ -3,12 +3,15 @@
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css');
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 @import url('./timeline.css');
+@import url('./zigzag_timeline.css');
 
 body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
     font-family: 'Saira Extra Condensed', sans-serif;
+    background: url('/assets/images/ep_naturalwhite/ep_naturalwhite/ep_naturalwhite.png');
+    background-repeat: repeat;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -101,7 +104,7 @@ p {
 #mainPhoto {
     height: 263px;
     width: 100%;
-    background: url('/assets/images/photo.jpg') center center;
+    background: url('/assets/images/mainPhoto.jpg') center center;
     -webkit-background-size: cover;
     background-size: cover;
 }

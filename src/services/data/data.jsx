@@ -61,7 +61,7 @@ export const Employment = [
 
 export const skillData = [
   {
-    value: .90,
+    value: .95,
     color: colors.red900,
     name: 'ruby',
     label: 'Ruby<br/><small>Ruby on Rails</small>',
@@ -82,7 +82,7 @@ export const skillData = [
     icon: '/assets/images/programming_logos/react.png',
   },
   {
-    value: .80,
+    value: .85,
     color: colors.redA700,
     name: 'angular',
     label: 'angularJS',
@@ -101,3 +101,46 @@ export const skillChartOptions = {
   cutoutPercentage: 95,
   maintainAspectRatio: false
 }
+
+export const professionalOverview = `
+  I have more than 5 years of experience, I worked with different companies across the globe. 
+  <br />During these year I have learned lots of programming languages. Most of the projects I worked with is web based products.
+  <br />For whatever application I'm working on weather it was an API or fullstack web products I always make sure codes are reusable, neat and easy to be read and well documented for other developers.
+`;
+
+export const professionalFacts = [
+  {label: 'status', value: 'Employed, Looking for part-time'},
+  {label: 'desired salary', value: 'To be discussed'},
+  {label: 'educational level', value: 'BS Information Technology, Undergraduate'},
+  {label: 'job type', value: 'Individual contractor'},
+  {label: 'mobility', value: 'Willing to relocate'},
+  {label: 'languages', value: 'English, Filipino'},
+  {label: 'position', value: 'Software Engineer'},
+  {label: 'industry', value: 'Web and mobile development'},
+  {label: 'specialty', value: 'Backend and frontend development'},
+  {label: 'hobbies', value: 'CSgo, DOTA, Unknown Players Battleground'}
+];
+
+export const personalQualities = [
+  {
+    icon: 'fa fa-code fa-2x',
+    title: 'Tested Codes',
+    description: 'A well tested code dictates the health of the application. I always make sure all codes are backed by unit-tests'
+  },
+  {
+    icon: 'fa fa-clock-o fa-2x',
+    title: 'On-Time',
+    description: 'Keeping the completion of each task is always a must, but I never sacrifice the quality of the codes over speed'
+  },
+  {
+    icon: 'fa fa-handshake-o fa-2x',
+    title: 'Keeping a Promise',
+    description: "When I say the job will be finish today, I'll make sure job is done next day meeting, even it cost me some overtimes"
+  },
+  {
+    icon: 'fa fa-group fa-2x',
+    title: 'Team player',
+    description: "I am team player, I love working with bright people. I love sharing my knowledge and learning at the same time"
+  }
+];
+

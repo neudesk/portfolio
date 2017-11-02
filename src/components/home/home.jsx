@@ -1,10 +1,10 @@
 import React from 'react';
 import * as colors from 'material-ui/styles/colors';
-import * as data from '../services/data/data';
+import * as data from '../../services/data/data';
 import * as bootstrap from 'react-bootstrap';
-import Timeline from './home/timeline';
-import SkillChart from './home/skill_chart';
-import CvDownloadBtn from './home/cv_download_btn';
+import Timeline from './timeline';
+import SkillChart from './skill_chart';
+import CvDownloadBtn from './cv_download_btn';
 
 export default class Home extends React.Component {
 
@@ -24,6 +24,7 @@ export default class Home extends React.Component {
         <bootstrap.Row className="show-grid p-0">
           <bootstrap.Col className="p-0" xs={12} md={12} lg={12} style={{background: colors.lightGreen100}}>
             <p className="p-50">
+              <h2 className="m-b-20">Overview</h2>
               <span dangerouslySetInnerHTML={{__html: data.Overview}}></span>
             </p>
           </bootstrap.Col>

@@ -7,7 +7,7 @@ export default class CenterView extends React.Component {
     return(
       <bootstrap.Grid fluid={true}>
         <bootstrap.Row className="show-grid">
-          <bootstrap.Col mdOffset={2} lgOffset={2} md={8}>
+          <bootstrap.Col md={12} lg={12}>
             {this.props.children}
           </bootstrap.Col>
         </bootstrap.Row>

@@ -23,8 +23,8 @@ export default class Layout extends React.Component {
   render() {
     const basicInfo = data.BasicInfo;
     return(
-      <CenterView>
-        <div className="whiteBg">
+      <div className="container">
+        <div>
           <bootstrap.Grid fluid={true}>
             <bootstrap.Row className="show-grid m-t-20">
               <bootstrap.Col className="p-0" xs={12} md={3} lg={3}>
@@ -57,10 +57,8 @@ export default class Layout extends React.Component {
               </bootstrap.Col>
             </bootstrap.Row>
             <bootstrap.Row>
-              <bootstrap.Col className="p-0" xs={12} md={12} lg={12}>
-                {this.props.children && React.cloneElement(this.props.children, {
-                  app: this.props
-                })}
+              <bootstrap.Col className="p-0 whiteBg" xs={12} md={12} lg={12}>
+                {this.props.children && React.cloneElement(this.props.children, {app: this.props})}
               </bootstrap.Col>
             </bootstrap.Row>
           </bootstrap.Grid>
@@ -86,7 +84,7 @@ export default class Layout extends React.Component {
             </bootstrap.Col>
           </bootstrap.Row>
         </div>
-      </CenterView>
+      </div>
     )
   }
 
