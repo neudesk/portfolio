@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 export default class PageMenu extends React.Component {
 
@@ -6,10 +7,14 @@ export default class PageMenu extends React.Component {
     return(
       <ul className="list-inline">
         <li className="text-center home">
-          <a href="javascript:void(0)"><span className="fa fa-home"></span><br />Home</a>
+          <Link to="/">
+            <span className="fa fa-home"></span><br />Home
+          </Link>
         </li>
         <li className="text-center resume">
-          <a href="javascript:void(0)"><span className="fa fa-user-circle"></span><br />Resume</a>
+          <Link to="/resume">
+            <span className="fa fa-user-circle"></span><br />Resume
+          </Link>
         </li>
         <li className="text-center portfolio">
           <a href="javascript:void(0)"><span className="fa fa-briefcase"></span><br />Portfolio</a>
