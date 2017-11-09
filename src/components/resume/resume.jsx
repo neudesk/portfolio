@@ -17,7 +17,7 @@ export default class Resume extends React.Component {
               <strong>{_.capitalize(fact.label)}</strong>
             </bootstrap.Col>
             <bootstrap.Col className="p-0" xs={7} md={7} lg={7}>
-              {fact.value}
+              <p>{fact.value}</p>
             </bootstrap.Col>
           </bootstrap.Row>
         </li>
@@ -25,11 +25,9 @@ export default class Resume extends React.Component {
     });
 
     return(
-      <p>
-        <ul className="list-inline row">
-          {lists}
-        </ul>
-      </p>
+      <ul className="list-inline row">
+        {lists}
+      </ul>
     )
   }
 
@@ -44,11 +42,9 @@ export default class Resume extends React.Component {
       )
     });
     return(
-      <p>
-        <ul className="list-inline row">
-          {lists}
-        </ul>
-      </p>
+      <ul className="list-inline row">
+        {lists}
+      </ul>
     )
   }
 

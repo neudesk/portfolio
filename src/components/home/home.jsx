@@ -23,10 +23,10 @@ export default class Home extends React.Component {
       <bootstrap.Grid fluid={true}>
         <bootstrap.Row className="show-grid p-0">
           <bootstrap.Col className="p-0" xs={12} md={12} lg={12} style={{background: colors.lightGreen100}}>
-            <p className="p-50">
+            <div className="p-50">
               <h2 className="m-b-20">Overview</h2>
-              <span dangerouslySetInnerHTML={{__html: data.Overview}}></span>
-            </p>
+              <p dangerouslySetInnerHTML={{__html: data.Overview}}></p>
+            </div>
           </bootstrap.Col>
         </bootstrap.Row>
         <bootstrap.Row className="show-grid p-0">

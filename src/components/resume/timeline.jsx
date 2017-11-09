@@ -1,33 +1,49 @@
 import React from 'react';
 import * as bootstrap from 'react-bootstrap';
 import * as data from '../../services/data/data';
+import * as colors from 'material-ui/styles/colors';
+import moment from 'moment'
 
 export default class Timeline extends React.Component {
 
 
-  renderTimeLineItem(data, isInverted = true, isEnd = false) {
-
-    let endLine = <div className="line"></div>;
-    if(isEnd) endLine = null;
+  renderTimeLineItem(data) {
+    const endDate = data.endDate == 'present' ? new Date() : new Date(data.endDate);
+    const startTime = moment(new Date(data.startDate));
+    const endTime = moment(endDate);
+    const duration = moment.duration(endTime.diff(startTime));
+    const years = duration.years();
+    const months = duration.months();
 
     return(
-      <li className={isInverted ? 'timeline-zigzag-inverted' : ''}>
-        <div className="timeline-zigzag-image">
-          <img className="img-circle img-responsive" src="http://lorempixel.com/250/250/cats/1" alt="" />
-        </div>
-        <div className="timeline-zigzag-panel">
-          <div className="timeline-zigzag-heading">
-            <h4>Step One</h4>
-            <h4 className="subheading">Subtitle</h4>
-          </div>
-          <div className="timeline-zigzag-body">
-            <p className="text-muted">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-          </div>
-        </div>
-        {endLine}
-      </li>
+      <div key={`${data.company}_${data.position}`} className="m-t-25">
+        <bootstrap.Row className="show-grid p-0">
+          <bootstrap.Col className="p-0" xs={4} md={3} lg={3}>
+            <div className="text-center calenderBox">
+              <h1>{years ? `${years}.` : ''}{months}</h1>
+              <h4>{years ? 'years' : 'months'}</h4>
+            </div>
+          </bootstrap.Col>
+          <bootstrap.Col className="p-0" xs={8} md={5} lg={5}>
+            <h1>{data.company}</h1>
+            <h3>{data.position}</h3>
+            <div>
+              <span className="fa fa-clock-o"></span> {data.startDate} - {data.endDate}
+            </div>
+          </bootstrap.Col>
+          <bootstrap.Col className="p-0" xsHidden md={4} lg={4}>
+             <img src={data.banner} style={{width: '150px', height: 'auto'}} />
+          </bootstrap.Col>
+        </bootstrap.Row>
+        <bootstrap.Row className="show-grid p-0 m-t-10">
+          <bootstrap.Col className="p-0" xs={8} xsOffset={4} md={9} mdOffset={3} lg={9} lgOffset={3}>
+            <bootstrap.Col className="p-0 m-b-10" mdHidden lgHidden xs={12}>
+              <img src={data.banner} style={{width: '100%', height: 'auto'}} />
+            </bootstrap.Col>
+            <p dangerouslySetInnerHTML={{__html: data.body}}></p>
+          </bootstrap.Col>
+        </bootstrap.Row>
+      </div>
     )
   }
 
@@ -45,9 +61,7 @@ export default class Timeline extends React.Component {
         <bootstrap.Row className="show-grid p-0">
           <div className="col-lg-12">
             <p className="text-center" dangerouslySetInnerHTML={{__html: data.professionalOverview}}></p>
-            <ul className="timeline-zigzag">
-              {self.renderTimeLineItem()}
-            </ul>
+            {self.renderTimeLine()}
           </div>
         </bootstrap.Row>
       </div>

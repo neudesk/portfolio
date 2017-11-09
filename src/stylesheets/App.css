@@ -258,3 +258,12 @@ p {
 #meteor {
     background: url('/assets/images/programming_logos/meteor.png') center center;
 }
+
+.calenderBox {
+    background: #2196F3;
+    width: 80px;
+    height: 80px;
+    margin: auto auto;
+    color: #FFF;
+    padding-top: 7px;
+}

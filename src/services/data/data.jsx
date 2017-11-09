@@ -19,7 +19,12 @@ export const Employment = [
     endDate: 'present',
     icon: '/assets/images/company_logos/crossover.png',
     banner: '/assets/images/company_banners/crossover.png',
-    body: ``
+    body: `
+      Builds cross-platform API<br />
+      Responsible for most of the frontend Development<br />
+      Makes sure that all codes is well-tested and backed by unit-tests<br />
+      Attends daily standup meetings
+    `
   },
   {
     company: 'Asseteq',
@@ -28,7 +33,12 @@ export const Employment = [
     endDate: 'October 20, 2017',
     icon: '/assets/images/company_logos/asseteq.png',
     banner: '/assets/images/company_banners/asseteq.png',
-    body: ``
+    body: `
+      Collaborate on developing micro-service APIs<br />
+      Integrates APIs on front-facing web products<br />
+      Develops test-unit coverage in almost 70% of all micro-services app<br />
+      Attends daily stand-up meetings
+    `
   },
   {
     company: 'Rentsurveyor',
@@ -37,7 +47,12 @@ export const Employment = [
     endDate: 'July 27, 2016',
     icon: '/assets/images/company_logos/rentsurveyor.png',
     banner: '/assets/images/company_banners/rentsurveyor.png',
-    body: ``
+    body: `
+      Lead a development team which consists of 3 developers and 1 QA<br />
+      Develops a geocoding feature for rentsurveyor.com; computes distance, driving path and more<br />
+      Develop a data scraping script for data mining rental establishments in Australia<br />
+      Host daily stand-up meetings
+    `
   },
   {
     company: 'Iconstrategies BPO Inc.',
@@ -46,16 +61,25 @@ export const Employment = [
     endDate: 'May 13, 2016',
     icon: '/assets/images/company_logos/iconstrategiesbpo.png',
     banner: '/assets/images/company_banners/iconstrategiesbpo.png',
-    body: ``
+    body: `
+      Collaborate on developing core-API for zenoradio.com<br />
+      Develops RCA, Broadcaster and Admin web based dashboard<br />
+      Develops well-test codes using test-units and rspec<br />
+      Suggests UI/UX approach in different user application features<br />
+      Attend daily stand-up meetings
+    `
   },
   {
     company: 'The Advitor Limited Group',
     position: 'Web Developer',
     startDate: 'February 21, 2012',
-    endDate: 'April 4, 2015',
+    endDate: 'April 4, 2014',
     icon: '/assets/images/company_logos/advitor.png',
     banner: '/assets/images/company_banners/advitor.png',
-    body: ``
+    body: `
+      Sole developer for developing custom feature for open-source cloud-platform Openstack<br />
+      Attend daily meetings
+    `
   }
 ]
 
