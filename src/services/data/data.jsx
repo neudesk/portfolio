@@ -168,3 +168,11 @@ export const personalQualities = [
   }
 ];
 
+export const contactData = [
+  { icon: 'fa fa-paper-plane fa-2x', value: 'neumerance@live.com' },
+  { icon: 'fa fa-link fa-2x', value: 'www.jonathancanaveral.com' },
+  { icon: 'fa fa-skype fa-2x', value: 'neumerance' },
+  { icon: 'fa fa-linkedin fa-2x', value: 'www.linkedin.com/in/neumerance/' },
+  { icon: 'fa fa-phone fa-2x', value: '+63 047 613 5650' },
+  { icon: 'fa fa-mobile fa-3x', value: '+63 947 731 0730' },
+]
