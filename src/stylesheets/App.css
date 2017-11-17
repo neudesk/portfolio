@@ -98,6 +98,12 @@ p {
 .p-30 {
     padding: 30px;
 }
+.p-t-50 {
+    padding-top: 50px;
+}
+.p-r-30 {
+    padding-right: 30px;
+}
 
 .block {
     display: block;
@@ -105,6 +111,10 @@ p {
 
 .line-height-80 {
     line-height: 60px;
+}
+
+.relative {
+    position: relative;
 }
 
 #footer {
@@ -232,4 +242,48 @@ p {
     padding-left: 60px;
     line-height: 48px;
     font-size: 24px;
+}
+#mainMenu {
+    width: 100%;
+    background: #E0E0E0;
+    position: fixed;
+    top: 80px;
+    z-index: 1050;
+    height: 48px;
+}
+#mainMenu ul {
+}
+#mainMenu ul li {
+}
+#mainMenu ul li > a {
+    padding: 10px 30px;
+    display: block;
+    font-size: 20px;
+    color: #212121;
+    text-align: center;
+    cursor: pointer;
+}
+#mainMenu ul li > a:hover {
+    text-decoration: none;
+}
+#mainMenu ul li:hover {
+    background: #EEEEEE;
+}
+#mainMenu ul li:hover > a {
+}
+#mainMenu ul li.active {
+    background: #80D8FF;
+}
+#mainMenu li.active > a {
+    color: #FFFFFF;
+}
+#mainMenu .socialIcons {
+}
+#mainMenu .socialIcons li {
+}
+#mainMenu .socialIcons li > a {
+    text-align: center;
+    line-height: 48px;
+    padding: 0;
+    font-size: 14px;
 }
