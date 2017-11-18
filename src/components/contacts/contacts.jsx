@@ -3,6 +3,8 @@ import Map from './map';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import MailGun from 'mailgun.js';
+import * as EmailJS from 'emailjs-com';
+EmailJS.init("user_vMciLKxkyE9JoCN2UeO9B");
 
 const validEmail = (email) => {
   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -14,32 +16,127 @@ export default class Contacts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mailGun: MailGun.client({
-        username: 'api',
-        key: 'key-8a2691995ed10ee82ad69db9f11ed282',
-        public_key: 'pubkey-7ca0857097462a4338a61a2ae8344e7f'
-      }),
-      domain: 'sandbox6ce7c5a347114eec9896c6d01d0f856b.mailgun.org',
       sender: null,
       message: null,
-      subject: 'Someone visited your site'
+      validationErrors: [],
+      successMsg: null
     }
+  }
+
+  hasValidEmail() {
+    const self = this;
+    if (!self.state.sender) {
+      self.updateValidationErrors('Email is require');
+      return false;
+    }
+    const isValid = validEmail(self.state.sender);
+    if (!isValid) self.updateValidationErrors('Invalid email address')
+    return isValid
+  }
+
+  hasEnoughMsgLength() {
+    const self = this;
+    if (!self.state.message) {
+      self.updateValidationErrors('Message is required');
+      return false;
+    }
+    const isValid = self.state.message.length >= 20;
+    if (!isValid) self.updateValidationErrors('Your message is too short');
+    return isValid;
+  }
+  
+  updateValidationErrors(error) {
+    const self = this;
+    const errors = self.state.validationErrors;
+    errors.push(error);
+    self.setState({ validationErrors: errors })
+  }
+
+  resetNotification(callback = () => {}) {
+    this.setState({ validationErrors: [], successMsg: null }, callback);
+  }
+
+  resetForm() {
+    this.setState = {
+      sender: null,
+      message: null,
+      validationErrors: []
+    }
+  }
+
+  renderErrorNotif() {
+    const self = this;
+    const lists = self.state.validationErrors.map((error, _idx) => {
+      return (
+        <li key={_idx}>{error}</li>
+      )
+    })
+    return (
+      <div className="alert alert-success">
+        <ul>{lists}</ul>
+      </div>
+    )
+  }
+
+  renderSuccessNotif() {
+    const self = this;
+    return (
+      <div className="alert alert-success">
+        <p>{ self.state.successMsg }</p>
+      </div>
+    )
   }
 
   sendMessage() {
     const self = this;
-    if (validEmail(self.state.sender)) {
-      self.state.mailGun.messages.create(self.state.domain, {
-        from: self.state.sender,
-        to: ['jonathan.canaveral.vc@gmail.com'],
-        subject: self.state.subject,
-        text: self.state.message
-      }).then(msg => console.log(msg)).catch(err => console.log(err));
-    }
+    self.resetNotification(() => {
+      const validEmail = self.hasValidEmail();
+      const validLength = self.hasEnoughMsgLength();
+      const defaultErrorMsg = 'Unable to send you message at the moment, please try again later.';
+      if (validEmail || validLength) {
+        EmailJS.send('gmail', 'template_fvmaPDao',{from: self.state.sender, message: self.state.message, reply_to: self.state.sender}).then((response) => {
+          if (response.status == 200) {
+            self.setState({ successMsg: 'Thank you, I will reply to you ASAP' })
+          } else {
+            console.log('error', response.message);
+            self.updateValidationErrors(defaultErrorMsg);
+          }
+        }, (error) => {
+          self.updateValidationErrors(defaultErrorMsg);
+          console.log('error', error);
+        });
+      }
+    });
   }
 
   render() {
     const self = this;
+
+    const form = <div className="form">
+      <div>
+        <TextField
+          hintText="Email"
+          floatingLabelText="Please input your email here"
+          fullWidth={true}
+          onChange={(e) => { self.setState({ sender: e.target.value }) } }
+        />
+      </div>
+      <div>
+        <TextField
+          hintText="Say something here"
+          floatingLabelText="Message"
+          multiLine={true}
+          fullWidth={true}
+          onChange={(e) => { self.setState({ message: e.target.value }) } }
+        />
+      </div>
+      <div>
+        <FlatButton label="Send" primary={true}
+                    icon={<span className="fa fa-send" />}
+                    fullWidth={true} onClick={self.sendMessage.bind(this)} />
+      </div>
+    </div>
+
     return(
       <div>
         <div id="contactMap">
@@ -57,28 +154,9 @@ export default class Contacts extends React.Component {
           </div>
           <div className="m-b-30 m-t-30">
             <div style={{width: '400px', margin: 'auto auto'}}>
-              <div>
-                <TextField
-                  hintText="Email"
-                  floatingLabelText="Please input your email here"
-                  fullWidth={true}
-                  onChange={(e) => { self.setState({ sender: e.target.value }) } }
-                />
-              </div>
-              <div>
-                <TextField
-                  hintText="Say something here"
-                  floatingLabelText="Message"
-                  multiLine={true}
-                  fullWidth={true}
-                  onChange={(e) => { self.setState({ message: e.target.value }) } }
-                />
-              </div>
-              <div>
-                <FlatButton label="Send" primary={true}
-                            icon={<span className="fa fa-send" />}
-                            fullWidth={true} onClick={self.sendMessage.bind(this)} />
-              </div>
+              { self.state.successMsg ? self.renderSuccessNotif() : null }
+              { self.state.validationErrors.length ? self.renderErrorNotif() : null }
+              {self.state.successMsg ? null : form}
             </div>
           </div>
         </div>
