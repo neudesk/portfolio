@@ -2,10 +2,44 @@ import React from 'react';
 import Map from './map';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
+import MailGun from 'mailgun.js';
+
+const validEmail = (email) => {
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
 
 export default class Contacts extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      mailGun: MailGun.client({
+        username: 'api',
+        key: 'key-8a2691995ed10ee82ad69db9f11ed282',
+        public_key: 'pubkey-7ca0857097462a4338a61a2ae8344e7f'
+      }),
+      domain: 'sandbox6ce7c5a347114eec9896c6d01d0f856b.mailgun.org',
+      sender: null,
+      message: null,
+      subject: 'Someone visited your site'
+    }
+  }
+
+  sendMessage() {
+    const self = this;
+    if (validEmail(self.state.sender)) {
+      self.state.mailGun.messages.create(self.state.domain, {
+        from: self.state.sender,
+        to: ['jonathan.canaveral.vc@gmail.com'],
+        subject: self.state.subject,
+        text: self.state.message
+      }).then(msg => console.log(msg)).catch(err => console.log(err));
+    }
+  }
+
   render() {
+    const self = this;
     return(
       <div>
         <div id="contactMap">
@@ -28,6 +62,7 @@ export default class Contacts extends React.Component {
                   hintText="Email"
                   floatingLabelText="Please input your email here"
                   fullWidth={true}
+                  onChange={(e) => { self.setState({ sender: e.target.value }) } }
                 />
               </div>
               <div>
@@ -36,12 +71,13 @@ export default class Contacts extends React.Component {
                   floatingLabelText="Message"
                   multiLine={true}
                   fullWidth={true}
+                  onChange={(e) => { self.setState({ message: e.target.value }) } }
                 />
               </div>
               <div>
                 <FlatButton label="Send" primary={true}
                             icon={<span className="fa fa-send" />}
-                            fullWidth={true} />
+                            fullWidth={true} onClick={self.sendMessage.bind(this)} />
               </div>
             </div>
           </div>
