@@ -4,9 +4,9 @@ import * as data from '../services/data/data';
 export default class RightColumn extends React.Component {
 
   renderContacts() {
-    return data.contactData.map((contact) => {
+    return data.contactData.map((contact, _idx) => {
       return (
-        <li>
+        <li key={_idx}>
           <div className="relative">
             <span className={`icon ${contact.icon}`}></span>
             <div className="contactData">{contact.value}</div>

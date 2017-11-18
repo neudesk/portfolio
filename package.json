@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://www.jonathancanaveral.com",
   "dependencies": {
+    "google-maps-react": "^1.1.2",
     "jquery": "^3.2.1",
     "jquery-circle-progress": "^1.2.2",
     "jquery-match-height": "^0.7.2",
