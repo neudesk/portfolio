@@ -118,6 +118,13 @@ export const skillData = [
     name: 'meteor',
     label: 'meteorJS<br/><small>expressNode</small>',
     icon: '/assets/images/programming_logos/meteor.png',
+  },
+  {
+    value: .75,
+    color: colors.red600,
+    name: 'php',
+    label: 'PHP<br /><small>CodeIgniter</small>',
+    icon: '/assets/images/programming_logos/codeigniter.png',
   }
 ];
 
