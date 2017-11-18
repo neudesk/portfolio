@@ -2,7 +2,6 @@ import React from 'react';
 import Map from './map';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
-import MailGun from 'mailgun.js';
 import * as EmailJS from 'emailjs-com';
 EmailJS.init("user_vMciLKxkyE9JoCN2UeO9B");
 
